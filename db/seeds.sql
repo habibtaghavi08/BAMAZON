@@ -1,0 +1,12 @@
+use bamazon;
+insert into products(product_name,department_name,price,stock_quantity)values("Persian Heriz", "Rugs", 400,100);
+insert into products(product_name,department_name,price,stock_quantity)values("Persian Tabriz", "Rugs", 500,90);
+insert into products(product_name,department_name,price,stock_quantity)values("Persian Qhom", "Rugs", 600,19);
+insert into products(product_name,department_name,price,stock_quantity)values("Persian Taba-Tabriz", "Rugs", 100,20);
+insert into products(product_name,department_name,price,stock_quantity)values("Persian Mashad ", "Rugs", 900,350);
+insert into products(product_name,department_name,price,stock_quantity)values("Persian Sarouk", "Rugs", 110,11);
+insert into products(product_name,department_name,price,stock_quantity)values("Persian Farahan", "Rugs", 120,25);
+insert into products(product_name,department_name,price,stock_quantity)values("Persian Serapi", "Rugs", 850,8);
+insert into products(product_name,department_name,price,stock_quantity)values("Persian Gharajeh", "Rugs", 140,50);
+insert into products(product_name,department_name,price,stock_quantity)values("Persian Haj-Alli", "Rugs", 130,5);
+insert into products(product_name,department_name,price,stock_quantity)values("Persian Bidjar", "Rugs", 440,1000);
