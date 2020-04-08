@@ -23,3 +23,9 @@ function display(){
             name:"itemId"
         },
         
+        {
+        message:"how many units to you want to purchase",
+        type:"input",
+        name:"units"
+     }
+
