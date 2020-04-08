@@ -12,11 +12,14 @@ connection.connect(function(error){
 })
 
 require("console.table")
+var inquirer = require("inquirer")
 
 function display(){
     connection.query("select * from products", function(error,data){
         console.table(data)
-    })
-}
-
-display()
+        inquirer.prompt([{
+            message:"choose an item number",
+            type:"input", 
+            name:"itemId"
+        },
+        
