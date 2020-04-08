@@ -29,3 +29,10 @@ function display(){
         name:"units"
      }
 
+    ]).then(function(input){
+        ///do math, data.stock_quantity - input.units then console.log(result)
+            display()
+        })
+        })
+        
+      
