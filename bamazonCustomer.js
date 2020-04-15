@@ -1,4 +1,7 @@
+// connecting mysql database to my terminal via 
 var mysql = require("mysql")
+
+// gets the login credentials 
 var connection =  mysql.createConnection({
     host:"localhost", 
     port : 3306, 
@@ -7,10 +10,14 @@ var connection =  mysql.createConnection({
     database:"bamazon"
 })
 
+// uses the login credential to connect to MySql dataBase
 connection.connect(function(error){
     console.log("connection id"+connection.threadId)
 })
+
+// sums up total purchases on the table
 var totalPurchase = 0
+
 require("console.table")
 var inquirer = require("inquirer")
 
@@ -50,7 +57,7 @@ function display(){
                        console.log("Insufficient Quantity")
                        display()
                    }
-                   
+
                         
 
 
