@@ -28,8 +28,23 @@ function display(){
         type:"input",
         name:"units"
      }
+    //  .then statemenet
 
     ]).then(function(input){
+      var statement =   connection.query("select * from products where item_id =?", input.itemId,function(error,data){
+
+                    var results = data[0].stock_quantity - input.units
+
+
+                        
+
+
+                      console.table(results)
+                      console.log(statement.sql)
+
+
+         })
+
         ///do math, data.stock_quantity - input.units then console.log(result)
             display()
         })
