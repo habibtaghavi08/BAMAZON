@@ -10,7 +10,7 @@ var connection =  mysql.createConnection({
 connection.connect(function(error){
     console.log("connection id"+connection.threadId)
 })
-
+var totalPurchase = 0
 require("console.table")
 var inquirer = require("inquirer")
 
@@ -33,20 +33,34 @@ function display(){
     ]).then(function(input){
       var statement =   connection.query("select * from products where item_id =?", input.itemId,function(error,data){
 
-                    var results = data[0].stock_quantity - input.units
+                    var updatedQuantity= data[0].stock_quantity - input.units
+                    if (updatedQuantity > 0){
 
+                        var price = data[0].price
 
+                        connection.query("update products set stock_quantity = ? where item_id = ?", [updatedQuantity, input.itemId], function(error,data){
+                                         
+                                     totalPurchase = totalPurchase + (input.units *price)
+                                     console.log("total purchase is", totalPurchase)
+                                     display()
+                                     
+                        }) 
+                    }
+                   else{
+                       console.log("Insufficient Quantity")
+                       display()
+                   }
+                   
                         
 
 
-                      console.table(results)
-                      console.log(statement.sql)
+                    
 
 
          })
 
         ///do math, data.stock_quantity - input.units then console.log(result)
-            display()
+           
         })
         })
         
