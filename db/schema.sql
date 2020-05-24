@@ -1,5 +1,5 @@
-create database bamazon;
-use bamazon;
+create database bamazon_1;
+use bamazon_1;
 create table products(
     item_id  integer not null auto_increment,
     product_name VARCHAR(45),
@@ -8,4 +8,3 @@ create table products(
     stock_quantity integer,
     primary key(item_id)
 );
-

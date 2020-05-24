@@ -7,7 +7,7 @@ var connection = mysql.createConnection({
     port: 3306,
     user: "habib",
     password: "password",
-    database: "bamazon"
+    database: "bamazon_1"
 })
 
 // uses the login credential to connect to MySql dataBase
@@ -28,17 +28,17 @@ function display() {
         console.table(data)
         // prompts messages to customer about choosing an item # as well as How many units they want
         inquirer.prompt([{
-                message: "choose an item number",
+                message: "PLEASE CHOOSE AN ITEM NUMBER",
                 type: "input",
                 name: "itemId"
             },
 
             {
-                message: "how many units to you want to purchase",
+                message: "HOW MANY UNITS WOULD YOU LIKE TO PURCHASE",
                 type: "input",
                 name: "units"
             }
-            //  (.then statemenet) dot then statement gets the data from terminal and does the math to update quantity and gets the total purchase correct
+            //  (.then statement) dot then statement gets the data from terminal and does the math to update quantity and gets the total purchase correct
 
         ]).then(function (input) {
             var statement = connection.query("select * from products where item_id =?", input.itemId, function (error, data) {
@@ -48,10 +48,10 @@ function display() {
 
                     var price = data[0].price
 
-                    connection.query("update products set stock_quantity = ? where item_id = ?", [updatedQuantity, input.itemId], function (error, data) {
+                    connection.query("update products set stock_quantity = ? where item_id = ?", [updatedQuantity, input.itemId], function (error, data){
 
                         totalPurchase = totalPurchase + (input.units * price)
-                        console.log("total purchase is", totalPurchase)
+                        console.log("YOUR TOTAL PURCHASE AMOUNT IS:", totalPurchase)
                         display()
 
                     })
